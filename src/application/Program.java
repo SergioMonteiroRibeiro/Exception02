@@ -28,14 +28,7 @@ public class Program {
 		System.out.println();
 		System.out.print("Enter the amount for withdraw: ");
 		double amount = sc.nextDouble();
-		
-		if (account.getBalance() == 0 || amount > account.getWithdrawLimit()) {
-			System.out.println("Withdraw error: The amount exceeds withdraw limit ");
-		}
-		else {
-			account.withdraw(amount);
-			System.out.println("New balance: " + String.format("%.2f",account.getBalance()));
-		}
+		System.out.println(account.withdraw(amount));
 		
 		sc.close();
 	}

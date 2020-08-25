@@ -8,7 +8,6 @@ public final class Account {
 	private Double withdrawLimit;
 	
 	public Account(Integer number, String holder, Double balance, Double withdrawLimit) {
-		
 		this.number = number;
 		this.holder = holder;
 		this.balance = balance;
@@ -47,7 +46,14 @@ public final class Account {
 		balance += amount;
 	}
 	
-	public void withdraw(Double amount) {
-		balance -= amount;
+	public String withdraw(Double amount) {
+		
+		if (balance == 0 || amount > withdrawLimit) {
+			return "Withdraw error: The amount exceeds withdraw limit ";
+		}
+		else {
+			balance -= amount;
+			return "New balance: " + String.format("%.2f",balance);
+		}
 	}
 }
